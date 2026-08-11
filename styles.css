@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #f5f7fa;
+}
+
+header {
+    background-color: #172033;
+    color: white;
+    padding: 32px 24px;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 40px 0;
+}
+
+#proyectos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+#proyectos h2 {
+    grid-column: 1 / -1;
+}
+
+#proyectos article {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+figure {
+    margin: 30px 0;
+}
+
+figure img {
+    display: block;
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+figcaption {
+    margin-top: 8px;
+}
+
+footer {
+    background-color: #172033;
+    color: white;
+    padding: 24px;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+}
+
+.lista-habilidades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+}
+
+.lista-habilidades li {
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 600px) {
+
+    .lista-habilidades {
+        grid-template-columns: 1fr;
+    }
+
+    #proyectos {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+#contacto form {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+}
+
+#contacto form p {
+    margin-bottom: 18px;
+}
+
+#contacto label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+#contacto textarea {
+    resize: vertical;
+}
+
+#contacto button {
+    background-color: #172033;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font: inherit;
+    cursor: pointer;
+}
+
+#contacto button:hover {
+    background-color: #26334d;
+}
+
+a:focus,
+input:focus,
+textarea:focus,
+button:focus {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
