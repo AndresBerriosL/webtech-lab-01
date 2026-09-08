@@ -115,6 +115,10 @@ footer a {
         grid-template-columns: 1fr;
     }
 
+    #lista-cursos {
+        grid-template-columns: 1fr;
+    }
+
     nav {
         flex-direction: column;
         gap: 8px;
@@ -172,4 +176,96 @@ textarea:focus,
 button:focus {
     outline: 3px solid #2563eb;
     outline-offset: 2px;
+}
+
+#boton-tema {
+    margin-top: 20px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+body.tema-oscuro {
+    background-color: #111827;
+    color: #f3f4f6;
+}
+
+body.tema-oscuro #proyectos article,
+body.tema-oscuro .lista-habilidades li,
+body.tema-oscuro #contacto form {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+body.tema-oscuro input,
+body.tema-oscuro textarea {
+    background-color: #374151;
+    color: white;
+}
+
+#cursos {
+    padding: 40px 0;
+}
+
+#lista-cursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+}
+
+#lista-cursos article {
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#form-curso {
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#form-curso label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#form-curso input,
+#filtro-cursos {
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+#form-curso button,
+.eliminar-curso {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #172033;
+    color: white;
+    cursor: pointer;
+}
+
+body.tema-oscuro #lista-cursos article {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+body.tema-oscuro #form-curso {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+body.tema-oscuro #form-curso input,
+body.tema-oscuro #filtro-cursos {
+    background-color: #374151;
+    color: white;
+    border: 1px solid #6b7280;
+}
+
+body.tema-oscuro .eliminar-curso {
+    background-color: #374151;
 }

@@ -16,8 +16,13 @@
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#habilidades">Habilidades</a>
             <a href="#proyectos">Proyectos</a>
+            <a href="#cursos">Cursos</a>
             <a href="#contacto">Contacto</a>
         </nav>
+
+        <button id="boton-tema" type="button" aria-pressed="false">
+            Cambiar tema
+        </button>
     </header>
 
     <main>
@@ -89,26 +94,76 @@
             </article>
         </section>
 
-        <section id="contacto">
+        <section id="cursos">
+            <h2>Cursos</h2>
+
+            <label for="filtro-cursos">Buscar curso:</label>
+            <input type="text" id="filtro-cursos">
+
+            <div id="lista-cursos"></div>
+
+            <h3>Agregar curso</h3>
+
+            <form id="form-curso">
+                <p>
+                    <label for="nombre-curso">Nombre:</label>
+                    <input type="text" id="nombre-curso">
+                </p>
+
+                <p>
+                    <label for="categoria-curso">Categoría:</label>
+                    <input type="text" id="categoria-curso">
+                </p>
+
+                <p>
+                    <label for="descripcion-curso">Descripción:</label>
+                    <input type="text" id="descripcion-curso">
+                </p>
+
+                <button type="submit">Agregar</button>
+            </form>
+                </section>
+
+                <section id="contacto">
             <h2>Contacto</h2>
 
-            <form>
+            <form id="form-contacto" novalidate>
                 <p>
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre">
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        aria-describedby="error-nombre"
+                    >
+                    <small id="error-nombre"></small>
                 </p>
 
                 <p>
                     <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email">
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        aria-describedby="error-email"
+                    >
+                    <small id="error-email"></small>
                 </p>
 
                 <p>
                     <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="5"
+                        aria-describedby="error-mensaje"
+                    ></textarea>
+                    <small id="error-mensaje"></small>
                 </p>
 
                 <button type="submit">Enviar mensaje</button>
+
+                <p id="confirmacion-contacto" aria-live="polite"></p>
             </form>
         </section>
 
@@ -126,5 +181,6 @@
         </a>
     </p>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
