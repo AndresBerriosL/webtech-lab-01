@@ -222,3 +222,24 @@ botonTema.addEventListener("click", function () {
 
     botonTema.setAttribute("aria-pressed", oscuro);
 });
+
+nombreContacto.addEventListener("input", function () {
+    if (nombreContacto.value.trim() !== "") {
+        errorNombre.textContent = "";
+        nombreContacto.removeAttribute("aria-invalid");
+    }
+});
+
+emailContacto.addEventListener("input", function () {
+    if (emailValido(emailContacto.value.trim())) {
+        errorEmail.textContent = "";
+        emailContacto.removeAttribute("aria-invalid");
+    }
+});
+
+mensajeContacto.addEventListener("input", function () {
+    if (mensajeContacto.value.trim() !== "") {
+        errorMensaje.textContent = "";
+        mensajeContacto.removeAttribute("aria-invalid");
+    }
+});
