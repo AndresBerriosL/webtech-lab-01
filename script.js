@@ -243,3 +243,87 @@ mensajeContacto.addEventListener("input", function () {
         mensajeContacto.removeAttribute("aria-invalid");
     }
 });
+
+
+const API_URL = "http://localhost:3000/api/v1";
+
+const listaServicios = document.querySelector("#lista-servicios");
+const estadoServicios = document.querySelector("#estado-servicios");
+const formBuscarServicio = document.querySelector("#form-buscar-servicio");
+const estadoBusqueda = document.querySelector("#estado-busqueda");
+const detalleServicio = document.querySelector("#detalle-servicio");
+
+function formatearPrecio(precio) {
+    return Number(precio).toFixed(2);
+}
+
+async function obtenerJSON(ruta) {
+    const respuesta = await fetch(`${API_URL}${ruta}`);
+    const datos = await respuesta.json();
+
+    if (!respuesta.ok) {
+        throw new Error(
+            datos.errors?.join(", ") || `Error HTTP ${respuesta.status}`
+        );
+    }
+
+    return datos;
+}
+
+async function cargarServicios() {
+    estadoServicios.textContent = "Cargando servicios...";
+    listaServicios.replaceChildren();
+
+    try {
+        const servicios = await obtenerJSON("/services");
+
+        for (const servicio of servicios) {
+            const elemento = document.createElement("li");
+
+            elemento.textContent =
+                `${servicio.name} — $${formatearPrecio(servicio.price)}`;
+
+            listaServicios.appendChild(elemento);
+        }
+
+        estadoServicios.textContent =
+            servicios.length === 0
+                ? "No hay servicios disponibles."
+                : "";
+    } catch (error) {
+        estadoServicios.textContent =
+            "No se pudieron cargar los servicios: " + error.message;
+    }
+}
+
+formBuscarServicio.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const id = document.querySelector("#id-servicio").value;
+
+    estadoBusqueda.textContent = "Buscando servicio...";
+    detalleServicio.replaceChildren();
+
+    try {
+        const servicio = await obtenerJSON(`/services/${encodeURIComponent(id)}`);
+
+        estadoBusqueda.textContent = "";
+
+        const nombre = document.createElement("h4");
+        nombre.textContent = servicio.name;
+
+        const precio = document.createElement("p");
+        precio.textContent = `Precio: $${formatearPrecio(servicio.price)}`;
+
+        const reparaciones = document.createElement("p");
+        reparaciones.textContent =
+            `Reparaciones asociadas: ${servicio.repairs_count}`;
+
+        detalleServicio.append(nombre, precio, reparaciones);
+    } catch (error) {
+        estadoBusqueda.textContent =
+            "No se pudo consultar el servicio: " + error.message;
+    }
+});
+
+cargarServicios();

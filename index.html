@@ -124,6 +124,27 @@
             </form>
                 </section>
 
+                <section id="wheelhouse">
+                    <h2>Wheelhouse — Lista de servicios</h2>
+
+                    <p id="estado-servicios" aria-live="polite">
+                        Cargando servicios...
+                    </p>
+
+                    <ul id="lista-servicios"></ul>
+
+                    <h3>Consultar servicio</h3>
+
+                    <form id="form-buscar-servicio">
+                        <label for="id-servicio">ID del servicio:</label>
+                        <input id="id-servicio" type="number" min="1" required>
+                        <button type="submit">Buscar</button>
+                    </form>
+
+                    <p id="estado-busqueda" aria-live="polite"></p>
+                    <div id="detalle-servicio"></div>
+                </section>
+
                 <section id="contacto">
             <h2>Contacto</h2>
 
